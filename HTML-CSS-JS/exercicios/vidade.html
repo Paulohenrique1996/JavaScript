@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            background-color: rgb(34, 49, 246);
+            font-size: 1.3rem;
+        }
+        h1{
+            text-align: center;
+            color: white;
+            font-family: arial;
+        }
+        div.janela{
+            text-align: center;
+            background-color: white;
+            width: 500px;
+            height: 450px;
+            margin: auto;
+            border-radius: 15px;
+        }
+        a{  
+
+            border-radius: 20px;
+            text-decoration: none;
+            text-align: center;
+            display: block;
+            background-color: aqua;
+            width: 80px;
+        }
+        a:hover{
+            background-color: rgb(255, 0, 242);
+            color: white;
+        }
+
+        
+    </style>
+    <title>Verificador de Idade</title>
+</head>
+<body>
+    <a href="index.html">Voltar</a>
+    <h1>Verificado de Idade</h1>
+    <div class="janela">
+        <form action="">
+            Ano de Nascimento<input type="number" name="txtano" id="txtano"><br>
+            Sexo: <input  type="radio" name="radSex" id="mas" value="Masculino" checked><label for="mas">Masculino</label>
+            <input   type="radio" name="radSex" id="fem" value="Feminino"><label for="fem">Feminino</label><br>
+            <input type="button" value="Verificar" onclick="verificar()">
+        </form>
+        <h2>Texto do informativo</h2>
+        <div class="foto"></div>
+    </div>
+
+
+        <script>
+            var agora = new Date()
+            var ano = agora.getFullYear()
+            var h2 = window.document.querySelector('h2')
+            var img = window.document.querySelector('div.foto')
+            img.innerHTML='<img src="idade.jpeg" alt="">'
+
+            function verificar(){
+                var txtano = window.document.querySelector('input#txtano')
+                var nAno = Number(txtano.value)
+                var radSex = window.document.getElementsByName('radSex')
+                
+                if(nAno<1900){
+                    alert('[ERRO]Informação inválida digite novamente')
+                    var rAno = '[ERRO]'
+                }else{
+                    var rAno = ano - nAno
+                }
+                
+                
+                if(radSex[0].checked){
+                    var genero = 'Homen'
+                    img.innerHTML='<img src="homen.jpeg" alt="">'
+                    
+                }else if(radSex[1].checked){
+                    var genero = 'Mulher'
+                    img.innerHTML='<img src="mulher.jpg" alt="" width="200px">'
+                }
+
+                if(rAno<18){
+                    h2.innerHTML=`Detectamos uma criança com ${rAno} anos`
+                    img.innerHTML='<img src="crinca.jpeg" alt="" width="200px">'
+                }else{h2.innerHTML=`Detectamos ${genero} com ${rAno} anos`}
+
+                
+                
+                
+               
+
+               
+                
+            }
+        </script>
+    </div>
+</body>
+</html>

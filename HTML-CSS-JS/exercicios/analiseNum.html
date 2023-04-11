@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            background-color: rgb(0, 132, 255);
+        }
+        h1{
+            text-align: center;
+        }
+        section.box{
+            background-color: white;
+            width: 600px;
+            margin: auto;
+            
+
+        }
+        footer{
+            text-align: center;
+        }
+    </style>
+    <title>Análise de números</title>
+</head>
+<body>
+    <button><a href="index.html">Voltar</a></button>
+    <h1>Analisador de Números</h1>
+    <section class="box">
+        <div id="for">
+            Número (entre 0 e 100):  <input type="number" name="ntxt" id="ntxt">
+            <input type="button" value="Adicionar" onclick="adc()"><br>
+            <select name="ctxt" id="ctxt" size="10">
+                <option value=""></option>
+            </select><br>
+            <input type="submit" value="Analisar" onclick="verificar()">
+        </div>
+        <div id="txt">
+
+        </div>
+    </section>
+    <footer>&copy;PauloDevFull</footer>
+
+    <script>
+        var ntxt = window.document.querySelector('input#ntxt')
+        var ctxt = window.document.querySelector('select#ctxt')
+        var txt = window.document.querySelector('div#txt')
+        var vetor = []
+        
+        
+
+        function isNumero(n) {
+            if(Number(n)>=1 && Number(n)<=100){
+                return true
+            }else{
+                return false
+            }
+        }
+        function inLista(n, l){
+            if(l.indexOf(Number(n)) != -1){
+                return true
+            }else{
+                return false
+            }
+        }
+        
+
+    
+
+       
+        
+        
+        function adc(){
+            if(isNumero(ntxt.value) && !inLista(ntxt.value, vetor)){
+                vetor.push(Number(ntxt.value))
+               
+                
+                var item = window.document.createElement('option')
+                item.text=(`Valor ${ntxt.value} adicionado`)
+                ctxt.appendChild(item)
+                txt.innerHTML=''
+               
+            }else{
+                alert('[ERRO] Digite um valor entre 0 e 100')
+                
+                
+                
+            }
+            ntxt.focus()
+            ntxt.value = ''
+
+        }
+        function verificar(){
+            if(vetor.length==0){
+                alert('[ERRO] Adicione valores antes de finalizar')
+            }else{
+                var soma = 0
+                var maior = vetor[0]
+                var menor = vetor[0]
+                
+                
+
+                for (var pos in vetor){
+                    soma += vetor[pos]
+                    if(maior < vetor[pos] ){
+                        maior = vetor[pos]
+                    }
+                    if(menor > vetor[pos]){
+                        menor = vetor[pos]
+                    }
+                }
+                txt.innerHTML=`<p>Ao todo, temos ${vetor.length} números cadastrados</p>  
+                <p>O maior valor informado foi o ${maior}</p>
+                <p>O menor valor informado foi o ${menor}
+                </p>A soma dos valores é ${soma}</p>
+                </p>A média dos valores é ${soma/vetor.length}</p>
+                `
+            }
+            
+            
+        }
+            
+            
+            
+            
+                
+            
+            
+            
+            
+        
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hora do Dia</title>
+    <style>
+        body{
+            background-color: rgb(75, 0, 75);
+            color: white;
+        }
+        h1{
+            text-align: center;
+        }
+        div.janela{
+            background-color: white;
+            margin: auto;
+            width: 400px;
+            height: 300px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        p.txth{
+        
+            font-size: 1.2rem;
+            padding-top: 1px;
+            color: black;
+        }
+        img{
+            border-radius:100% ;
+        }
+
+        .botao{
+            text-align: center;
+            display: block;
+            background-color: aqua;
+            color: rgb(0, 11, 82);
+            border-radius: 30px;
+            width: 80px;
+            text-decoration: none;
+        }
+        .botao:hover{
+            color: rgb(255, 255, 255);
+            background-color: blue;
+        }
+
+    </style>
+</head>
+<body>
+    <a class="botao" href="index.html">Voltar</a>
+    <h1>Hora do Dia</h1>
+    <div class="janela">
+        <p class="txth"></p>
+        <div class="imagem">
+    </div>
+    
+    <script>
+        var agora = new Date()
+        var hora = agora.getHours()
+        var minutos = agora.getMinutes()
+        var txtp = window.document.querySelector('p.txth')
+        var img = window.document.querySelector('div.imagem')
+
+        txtp.innerText = `Agora são ${hora}:${minutos} horas`
+
+
+        if(hora<=11){
+            img.innerHTML = `<img src="dia.jpeg" alt="">`
+            if(hora<=5){
+                img.innerHTML = `<img src="madrugada.jpeg" alt="">`}
+        }else if(hora<=18){
+            img.innerHTML = `<img src="tarde.jpeg" alt="">`
+        }else if(hora>=19){
+            img.innerHTML = `<img src="noite.jpeg" alt="">`
+        }
+    </script>
+</body>
+</html>

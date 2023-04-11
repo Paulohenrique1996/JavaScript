@@ -1,0 +1,28 @@
+div.area{
+    font: normal 20pt arial;
+    background-color: rgb(0, 128, 0);
+    color: white;
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    line-height: 200px;
+}
+
+div.calc{
+    background-color: aqua;
+    margin: auto;
+    width: 500px;
+    height: 300px;
+}
+
+form{
+    padding-top: 100px;
+    margin: 100px;
+    
+}
+
+input.cx{
+    width: 100px;
+    height: 20px;
+    
+}

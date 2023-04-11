@@ -1,0 +1,20 @@
+body{
+    background-color: aqua;
+}
+
+h1.titulo{
+    background-color: brown;
+    width: 200px;
+    margin: auto;
+    text-align: center;
+}
+
+div.painel{
+    background-color: chartreuse;
+    border: 1px solid gray;
+    width: 400px;
+    text-align: center;
+    margin: auto;
+    position: relative;
+    top: 100px;
+}

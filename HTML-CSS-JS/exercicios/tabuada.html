@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            background-color: rgba(0, 76, 255, 0.745);
+            text-align: center;
+            font-size: 1.3rem;
+        }
+
+        .janela{
+            text-align: start;
+            margin: auto;
+            width: 600px;
+            background-color: white;
+            border-radius: 7px;
+            box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.334);
+        }
+        input{
+            margin-top: 10px;
+            margin-bottom: 40px;
+        }
+        .marg{
+            padding: 15px;
+        }
+        select{
+            font-size: 1.2rem;
+        }
+    </style>
+    <title>Tabuada</title>
+</head>
+<body>
+    <h1>Tabuada</h1>
+    <section class="janela">
+        <div class="marg">
+            <div class="form">
+                <label for="num">Número: </label><input type="number" name="num" id="num">
+                <input type="button" value="Gerar Tabuada" onclick="gerar()">
+            </div>
+            <div class="tabuada">
+                <select name="tab" id="tab" size="10">
+                </select>
+            </div>
+        </div>
+    </section>
+    <script>
+        var num = window.document.querySelector('input#num')
+        var tab = window.document.querySelector('select#tab')
+        function gerar(){
+            if(num.value==''){
+                alert('[ERRO] Digite a opção correta!')
+            }else{
+                var n = Number(num.value)
+                var c = 1
+                tab.innerHTML=''
+                while(c<=10){
+                    var item = window.document.createElement('option')
+                    item.text=(`${n} x ${c} = ${n*c}`)
+                    tab.appendChild(item)
+                    c++
+                }
+                
+            }
+        }
+    </script>
+</body>
+</html>

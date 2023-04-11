@@ -1,0 +1,113 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            background-color: rgba(0, 106, 255, 0.686);
+            text-align: center;
+            color: aliceblue;
+            font-size: 1.2rem;
+            font-family: cursive;
+        }
+        a{  
+
+        border-radius: 20px;
+        text-decoration: none;
+        text-align: center;
+        display: block;
+        background-color: aqua;
+        width: 80px;
+        }
+        a:hover{
+        background-color: rgb(255, 0, 242);
+        color: white;
+        }
+        section.janela{
+            margin: auto;
+            text-align: start;
+            border-radius: 10px;
+            box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.334);
+            background-color: white;
+            width: 550px;
+            color: black;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+        input{
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+        label{
+            margin-left: 20px;
+        }
+        div.mens{
+            margin-top: 10px;
+            margin-bottom: 20px;
+            padding-bottom: 30px;
+
+        }
+        .botao{
+            border-radius: 5px;
+            margin-left: 20px;
+        }
+        .botao:hover{
+            background-color: rgba(169, 169, 169, 0.398);
+            cursor: pointer;
+        }
+        footer{
+            font-family:Arial, Helvetica, sans-serif;
+            font-size: 1rem;
+        }
+        
+
+        
+    </style>
+    <title>Passos</title>
+</head>
+<body>
+    <a href="index.html">Voltar</a>
+    <header>
+        <h1>Contador de Passos!</h1>
+    </header>
+    <section class="janela">
+        <div class="form">
+           <label for="tini">Início: </label><input type="number" name="tini" id="tini"><br>
+           <label for="tfim">Fim: </label><input type="number" name="tfim" id="tfim"><br>
+           <label for="tpas">Passos: </label><input type="number" name="tpas" id="tpas"><br>
+           <input class="botao" type="submit" value="Contar" onclick="contar()">
+        </div>
+        <div class="mens">
+            Preparando a contagem....
+        </div>
+    </section>
+    <footer>&copy;PauloDevFull</footer>
+    <script>
+        var tini = window.document.querySelector('input#tini')
+        var tfim = window.document.querySelector('input#tfim')
+        var tpas = window.document.querySelector('input#tpas')
+        var mens = window.document.querySelector('div.mens')
+        
+        
+        function contar(){
+
+
+            if(tini.value == '' || tfim.value == '' || tpas.value == '' ){
+                alert('[ERRO] Faltam Dados!!')
+            }else{
+                var nini = Number(tini.value)
+                var nfim = Number(tfim.value)
+                var npas = Number(tpas.value)
+                mens.innerHTML='Contando: '
+
+                for(var n = nini;n<=nfim;n+=npas){
+                    mens.innerHTML += `${n}👣 ` 
+                }
+                mens.innerHTML += `🔚`
+            }
+            
+            
+        }
+    </script>
+</body>
+</html>
